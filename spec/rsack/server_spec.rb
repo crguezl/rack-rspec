@@ -2,7 +2,10 @@ require 'spec_helper'
 
 describe Rsack::Server do
 
-  let(:server) { Rack::MockRequest.new(Rsack::Server.new) }
+  #let(:server) { Rack::MockRequest.new(Rsack::Server.new) }
+  def server
+    Rack::MockRequest.new(Rsack::Server.new) 
+  end
 
   context '/' do
     it "should return a 200 code" do

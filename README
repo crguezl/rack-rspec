@@ -1,2 +1,27 @@
 See  "Using RSpec with Rack" by Mike Bethany in YouTube:
               http://youtu.be/FV6AQEKxBOg
+
+- Rack::MockRequest helps testing your Rack application without actually using HTTP.
+           http://rack.rubyforge.org/doc/Rack/MockRequest.html
+
+- Rack::MockResponse provides useful helpers for testing your apps
+           http://rack.rubyforge.org/doc/Rack/MockResponse.html
+
+Let and let!
+
+  Use let to define a memoized helper method. The value will be cached
+  across multiple calls in the same example but not across examples.
+
+  Note that let is lazy-evaluated: it is not evaluated until the first time
+  the method it defines is invoked. You can use let! to force the method's
+  invocation before each example.
+
+    let(:server) { Rack::MockRequest.new(Rsack::Server.new) }
+
+  is conceptually equivalent to:
+
+    def server
+      Rack::MockRequest.new(Rsack::Server.new) 
+    end
+  only that is memoized
+
