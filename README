@@ -23,5 +23,6 @@ Let and let!
     def server
       Rack::MockRequest.new(Rsack::Server.new) 
     end
+
   only that is memoized
 
